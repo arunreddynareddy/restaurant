@@ -1,0 +1,221 @@
+.dish-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px 0 10px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dish-item-container {
+    padding: 10px;
+  }
+}
+
+.veg-details-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 200px;
+  width: 400px;
+}
+
+@media screen and (min-width: 768px) {
+  .veg-details-container {
+    min-width: 500px;
+    width: 800px;
+  }
+}
+
+.veg-border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid green;
+  flex-shrink: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .veg-border {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.non-veg-border {
+  border: 2px solid brown;
+}
+
+.veg-round {
+  background-color: green;
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .veg-round {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+  }
+}
+
+.non-veg-round {
+  background-color: brown;
+}
+
+.dish-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 0;
+  margin-left: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .dish-details-container {
+    margin-left: 10px;
+  }
+}
+
+.dish-name {
+  color: #000000;
+  font-family: 'Roboto';
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dish-name {
+    font-size: 20px;
+  }
+}
+
+.dish-currency-price {
+  color: #605a5b;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dish-currency-price {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+.dish-description {
+  color: #9e999a;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .dish-description {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+.controller-container {
+  background-color: green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 110px;
+  border: none;
+  border-radius: 40px;
+  padding: 0 10px 0 10px;
+  margin-top: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .controller-container {
+    width: 130px;
+    margin-top: 10px;
+  }
+}
+
+.button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 20px;
+  font-weight: 300;
+  cursor: pointer;
+  outline: none;
+}
+
+.quantity {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.not-available-text {
+  color: red;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .not-available-text {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+.addon-available-text {
+  color: blue;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .addon-available-text {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+.dish-calories {
+  color: orange;
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.dish-image {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .dish-image {
+    width: 140px;
+    height: 140px;
+  }
+}
