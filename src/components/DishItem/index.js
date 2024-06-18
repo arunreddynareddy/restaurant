@@ -1,68 +1,81 @@
+import {useState, useContext} from 'react'
+
+import CartContext from '../../context/CartContext'
+
 import './index.css'
 
-const CartItem = props => {
-  const {cartItems, dishDetails, addItemToCart, removeItemFromCart} = props
+const DishItem = ({dishDetails}) => {
   const {
-    dishId,
     dishName,
-    dishPrice,
     dishType,
+    dishPrice,
     dishCurrency,
     dishDescription,
     dishImage,
     dishCalories,
-    dishAvailability,
     addonCat,
+    dishAvailability,
   } = dishDetails
 
-  const onIncrementQuantity = () => addItemToCart(dishDetails)
-  const onDecrementQuantity = () => removeItemFromCart(dishDetails)
+  const [quantity, setQuantity] = useState(0)
+  const {addCartItem} = useContext(CartContext)
 
-  const getQuantity = () => {
-    const cartItem = cartItems.find(item => item.dishId === dishId)
-    const quantity = cartItem ? cartItem.quantity : 0
-    return quantity
-  }
+  const onIncreaseQuantity = () => setQuantity(prevState => prevState + 1)
 
-  const renderControllerButtons = () => (
-    <div className="controller-container">
-      <button type="button" className="button" onClick={onDecrementQuantity}>
+  const onDecreaseQuantity = () =>
+    setQuantity(prevState => (prevState > 0 ? prevState - 1 : 0))
+
+  const onAddItemToCart = () => addCartItem({...dishDetails, quantity})
+
+  const renderControllerButton = () => (
+    <div className="controller-container d-flex align-items-center bg-success">
+      <button className="button" type="button" onClick={onDecreaseQuantity}>
         -
       </button>
-      <p className="quantity">{getQuantity()}</p>
-      <button type="button" className="button" onClick={onIncrementQuantity}>
+      <p className="quantity">{quantity}</p>
+      <button className="button" type="button" onClick={onIncreaseQuantity}>
         +
       </button>
     </div>
   )
 
   return (
-    <li className="dish-item-container">
-      <div className="veg-details-container">
-        <div className={`veg-border ${dishType === 1 ? 'non-veg-border' : ''}`}>
-          <div
-            className={`veg-round ${dishType === 1 ? 'non-veg-round' : ''}`}
-          />
-        </div>
-        <div className="dish-details-container">
-          <h1 className="dish-name">{dishName}</h1>
-          <p className="dish-currency-price">
-            {dishCurrency} {dishPrice}
-          </p>
-          <p className="dish-description">{dishDescription}</p>
-          {dishAvailability && renderControllerButtons()}
-          {!dishAvailability && (
-            <p className="not-available-text">Not Available</p>
-          )}
-          {addonCat.length !== 0 && (
-            <p className="addon-available-text">Customizations Available</p>
-          )}
-        </div>
+    <li className="mb-3 p-3 dish-item-container d-flex">
+      <div
+        className={`veg-border ${dishType === 1 ? 'non-veg-border' : ''} me-3`}
+      >
+        <div className={`veg-round ${dishType === 1 ? 'non-veg-round' : ''}`} />
       </div>
-      <p className="dish-calories">{dishCalories} calories</p>
-      <img src={dishImage} alt={dishName} className="dish-image" />
+      <div className="dish-details-container">
+        <h1 className="dish-name">{dishName}</h1>
+        <p className="dish-currency-price">
+          {dishCurrency} {dishPrice}
+        </p>
+        <p className="dish-description">{dishDescription}</p>
+        {dishAvailability && renderControllerButton()}
+        {!dishAvailability && (
+          <p className="not-availability-text text-danger">Not available</p>
+        )}
+        {addonCat.length !== 0 && (
+          <p className="addon-availability-text mb-0">
+            Customizations available
+          </p>
+        )}
+        {quantity > 0 && (
+          <button
+            type="button"
+            className="btn btn-outline-primary mt-3"
+            onClick={onAddItemToCart}
+          >
+            ADD TO CART
+          </button>
+        )}
+      </div>
+
+      <p className="dish-calories text-warning">{dishCalories} calories</p>
+      <img className="dish-image" alt={dishName} src={dishImage} />
     </li>
   )
 }
 
-export default CartItem
+export default DishItem

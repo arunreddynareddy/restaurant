@@ -1,63 +1,65 @@
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 0 30px 0 30px;
+.nav-header {
+  box-shadow: 0px 10px 10px -15px #111;
 }
 
-.header-main-heading {
-  color: #000000;
+.nav-header a {
+  text-decoration: none;
+}
+
+.logo-heading {
   font-family: 'Roboto';
-  font-size: 22px;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 35px;
+  color: #1f1f1f;
 }
 
-.description-icon-container {
-  display: flex;
-  align-items: center;
-}
-
-.header-description {
-  color: #171314;
-  font-family: 'Roboto';
-  font-size: 18px;
-  font-weight: bold;
-  justify-self: flex-end;
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 768px) {
-  .header-description {
-    display: none;
+@media screen and (max-width: 576px) {
+  .logo-heading {
+    font-size: 25px;
   }
 }
 
-.cart-icon-container {
+.my-orders-text {
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 18px;
+  color: #585555;
+  text-decoration: none;
+}
+
+.cart-icon-link {
   position: relative;
 }
 
+.cart-icon-button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+}
+
 .cart-icon {
-  color: #333131;
-  font-size: 30px;
+  font-size: 35px;
+  color: #585555;
 }
 
 .cart-count-badge {
+  background-color: #ff6347;
   position: absolute;
-  top: -20px;
-  right: -15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: -13px;
+  right: -8px;
+  height: 25px;
+  min-width: 25px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
 }
 
 .cart-count {
-  background-color: #d3680a;
-  color: #ffffff;
+  text-align: center;
+  color: #ffff;
   font-family: 'Roboto';
-  font-weight: bold;
-  font-size: 10px;
-  padding: 5px 10px 5px 10px;
-  border: none;
-  border-radius: 20px;
+  font-weight: 500;
+  font-size: 12px;
+  margin: 0;
 }
